@@ -5,11 +5,9 @@ namespace App\Http\Controllers\Api\V1;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Services\UserService;
-use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Requests\LoginRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SignupRequest;
-use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -23,8 +21,8 @@ class UserController extends Controller
         $this->userService->signup($data);
 
         return response()->json([
-            "status" => true,
-            "message" => "User registered successfully."
+            "status"    => true,
+            "message"   => "User registered successfully."
         ]);
     }
 
@@ -39,9 +37,9 @@ class UserController extends Controller
         if(!empty($token)){
 
             return response()->json([
-                "status" => true,
-                "message" => "User logged in succcessfully.",
-                "token" => $token
+                "status"    => true,
+                "message"   => "User logged in succcessfully.",
+                "token"     => $token
             ]);
         }
 
