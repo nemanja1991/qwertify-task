@@ -1,10 +1,5 @@
 
 export default function PageComponent({title}) {
-
-    PageComponent.propTypes = {
-        title: title.string
-    };
-
     return (
       <>
           <header className="bg-white shadow">

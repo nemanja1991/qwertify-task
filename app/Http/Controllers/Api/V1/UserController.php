@@ -18,11 +18,12 @@ class UserController extends Controller
     {
         $data = $request->validated();
 
-        $this->userService->signup($data);
+        $token = $this->userService->signup($data);
 
         return response()->json([
             "status"    => true,
-            "message"   => "User registered successfully."
+            "message"   => "User registered successfully.",
+            "token"     => $token
         ]);
     }
 
@@ -51,13 +52,13 @@ class UserController extends Controller
 
     public function profile(Request $request)
     {
-        return $this->userService->profile();
+        $currentUser = $this->userService->profile();
 
-        // return response()->json([
-        //     "status" => true,
-        //     "message" => "Profile data.",
-        //     "data" => $userData
-        // ]);
+        return response()->json([
+            "status" => true,
+            "message" => "Profile data.",
+            "data" => $currentUser
+        ]);
     }
 
     public function logout(Request $request)

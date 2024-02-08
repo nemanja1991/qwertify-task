@@ -32,7 +32,9 @@ export default function Login() {
         
       })
       .catch((error) => {
-          console.log(error);
+        const finalErrors = Object.values(error.response.data.errors).reduce((accum, next) => [...accum, ...next], [])
+        console.log(finalErrors)
+        setError({__html: finalErrors.join('<br>')})
       });
   };
 

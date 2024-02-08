@@ -13,7 +13,9 @@ class UserService
 
     public function signup($data)
     {
-        return $this->users->signup($data);
+        $this->users->signup($data);
+
+        return $this->login($data);
     }
 
     public function login($data)

@@ -18,18 +18,19 @@ export default function Signup() {
     setError({ __html: "" });
     
     axiosClient
-      .post("/signup", {
+      .post("/v1/signup", {
         name: fullName,
         email,
         password,
         password_confirmation: passwordConfirmation,
       })
       .then(({ data }) => {
-        setCurrentUser(data.user)
         setUserToken(data.token)
       })
       .catch((error) => {
-        console.log(error)
+        const finalErrors = Object.values(error.response.data.errors).reduce((accum, next) => [...accum, ...next], [])
+        console.log(finalErrors)
+        setError({__html: finalErrors.join('<br>')})
       });
   };
 

@@ -31,13 +31,6 @@ export default function DefaultLayout() {
         })
     }
 
-    useEffect(() => {
-      axiosClient.get('/v1/profile')
-        .then(({ data }) => {
-          setCurrentUser(data)
-        })
-    }, [])
-
   return (
     <>
       <div className="min-h-full">
@@ -98,8 +91,8 @@ export default function DefaultLayout() {
                                         <UserIcon className='w-8 h-8 bg-black/25 p-2 rounded-full text-white '/>
                                     </div>
                                     <div className="ml-3">
-                                        {/* <div className="text-base font-medium leading-none text-white">{currentUser.name}</div>
-                                        <div className="text-sm font-medium leading-none text-gray-400">{currentUser.email}</div> */}
+                                        {/* <div className="text-base font-medium leading-none text-white">{currentUser.data.name}</div>
+                                        <div className="text-sm font-medium leading-none text-gray-400">{currentUser.data.email}</div> */}
                                     </div>
                                 </div>
                                 <Menu.Item>
