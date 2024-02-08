@@ -51,13 +51,13 @@ class UserController extends Controller
 
     public function profile(Request $request)
     {
-        $userData = $this->userService->profile();
+        return $this->userService->profile();
 
-        return response()->json([
-            "status" => true,
-            "message" => "Profile data.",
-            "data" => $userData
-        ]);
+        // return response()->json([
+        //     "status" => true,
+        //     "message" => "Profile data.",
+        //     "data" => $userData
+        // ]);
     }
 
     public function logout(Request $request)
