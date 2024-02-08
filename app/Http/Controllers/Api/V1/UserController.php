@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Services\UserService;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Requests\LoginRequest;
 use App\Http\Controllers\Controller;
@@ -12,15 +13,14 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+
+    public function __construct(protected UserService $userService){}
+
     public function signUp(SignupRequest $request)
     {
         $data = $request->validated();
 
-        User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password)
-        ]);
+        $this->userService->signup($data);
 
         return response()->json([
             "status" => true,
@@ -32,10 +32,9 @@ class UserController extends Controller
     {
         $data = $request->validated();
 
-        $token = JWTAuth::attempt([
-            "email" => $request->email,
-            "password" => $request->password
-        ]);
+        $this->userService->login($data);
+
+        $token = $this->userService->login($data);
 
         if(!empty($token)){
 
@@ -54,7 +53,7 @@ class UserController extends Controller
 
     public function profile(Request $request)
     {
-        $userData = auth()->user();
+        $userData = $this->userService->profile();
 
         return response()->json([
             "status" => true,
@@ -65,7 +64,7 @@ class UserController extends Controller
 
     public function logout(Request $request)
     {
-        auth()->logout();
+        $this->userService->logout();
 
         return response()->json([
             "status" => true,
