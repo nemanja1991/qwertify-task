@@ -7,31 +7,31 @@ use App\Repositories\AccountRepository;
 class AccountService
 {
     public function __construct(
-        protected AccountRepository $accountService,
+        protected AccountRepository $accountRepository,
     ) {}
 
     public function all()
     {
-        return $this->accountService->all();
+        return $this->accountRepository->all();
     }
 
     public function store($data)
     {
-        $this->accountService->store($data);
+        $this->accountRepository->store($data);
     }
 
     public function find($id)
     {
-        $this->accountService->store($id);
+        $this->accountRepository->find($id);
     }
 
     public function update($data, $id)
     {
-        $this->accountService->update($data, $id);
+        $this->accountRepository->update($data, $id);
     }
 
     public function destroy($id)
     {
-        return $this->accountService->destroy($id);
+        return $this->accountRepository->destroy($id);
     }
 }

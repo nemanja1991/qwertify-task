@@ -31,7 +31,7 @@ class AccountRepository implements AccountInterface
 
     public function find($id)
     {
-        return Account::find($id);
+        return Account::where('id', $id)->first();
     }
 
     public function update($data, $id)
@@ -41,6 +41,6 @@ class AccountRepository implements AccountInterface
 
     public function destroy($id)
     {
-        return $data = Account::find($id)->delete();
+        return Account::where('id', $id)->first()->delete();
     }
 }

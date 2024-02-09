@@ -17,6 +17,7 @@ class AccountResource extends JsonResource
         return [
             'id'            => $this->id,
             'account_name'  => $this->account_name,
+            'slug'          => $this->slug,
             'website_url'   => $this->website_url,
             'username'      => $this->username,
             'password'      => $this->password,
