@@ -22,7 +22,15 @@ export default {
         'fade-in-down': "fade-in-down 0.2s ease-in-out both",
       },
     },
+    lineClamp: {
+      7: '7',
+      8: '8',
+      9: '9',
+      10: '10',
+    }
   },
-  plugins: [],
+  plugins: [
+    
+  ],
 }
 

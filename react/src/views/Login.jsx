@@ -92,7 +92,7 @@ export default function Login() {
                 Sign in
               </button>
             </div>
-            <p className="mt-2 text-center text-sm text-gray-600"><Link to="/forgot-password" className="font-medium text-indigo-600 hover:text-indigo-500">Forgot password</Link></p>
+            {/* <p className="mt-2 text-center text-sm text-gray-600"><Link to="/forgot-password" className="font-medium text-indigo-600 hover:text-indigo-500">Forgot password</Link></p> --> */}
           </form>
         </>
       );
