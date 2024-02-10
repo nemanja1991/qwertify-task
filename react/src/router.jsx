@@ -5,6 +5,7 @@ import Accounts from "./views/Accounts";
 import AccountsView from "./views/AccountsView";
 import GuestLayout from "./components/GuestLayout";
 import DefaultLayout from "./components/DefaultLayout";
+import ForgotPassword from "./views/ForgotPassword";
 
 const router = createBrowserRouter([
     
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
             {
                 path: '/signup',
                 element: <Signup />
+            },
+            {
+                path: '/forgot-password',
+                element: <ForgotPassword />
             },
         ]
     }

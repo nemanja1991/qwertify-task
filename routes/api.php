@@ -16,8 +16,9 @@ use App\Http\Controllers\Api\V1\AccountController;
 |
 */
 
-Route::post("/v1/signup",   [UserController::class, "signUp"]);
-Route::post("/v1/login",    [UserController::class, "login"]);
+Route::post("/v1/signup",           [UserController::class, "signUp"]);
+Route::post("/v1/login",            [UserController::class, "login"]);
+Route::post("/v1/forgot-password",  [UserController::class, "forgotPassword"]);
 
 Route::middleware('auth:api')->group(function() 
 {

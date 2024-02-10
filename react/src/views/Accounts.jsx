@@ -70,7 +70,7 @@ export default function Accounts() {
                     <td className="px-6 py-4">{a.account_name}</td>
                     <td className="px-6 py-4">{a.website_url}</td>
                     <td className="px-6 py-4">{a.username}</td>
-                    <td className="px-6 py-4">{a.password}</td>
+                    <td className="px-6 py-4"><p className="truncate md:text-clip">{a.password}</p></td>
                     <td className="px-6 py-4">
                       <div className="flex justify-between items-center">
                         <Link 

@@ -56,7 +56,7 @@ export default function AccountsView() {
       
       axiosClient.get(`/v1/accounts/get-by-slug/${id}`)
         .then(({data}) => {
-            setAccount(data)
+            setAccount(data.data)
             setLoading(false)
         })
     }

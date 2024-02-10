@@ -68,4 +68,11 @@ class UserController extends Controller
             "message" => "User logged out successfully."
         ]);
     }
+
+    public function forgotPassword(Request $request)
+    {
+        return response()->json([
+            "status" => true
+        ]);
+    }
 }
