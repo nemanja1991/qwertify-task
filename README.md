@@ -81,8 +81,10 @@ Authentication is required for all endpoints. Use token-based (JWT) authenticati
    "password_confirmation": "12345678"
 }]
 ```
+
 - **Response**:
-  ```json
+
+```json
   [
       {
         "status": true,
@@ -96,6 +98,7 @@ Authentication is required for all endpoints. Use token-based (JWT) authenticati
 - **URL**: `/v1/login`
 - **Description**: Login to app
 - **Request Parameters**: 
+
 ```json
   [{
    "email": "petar@gmail.com",
@@ -103,21 +106,23 @@ Authentication is required for all endpoints. Use token-based (JWT) authenticati
 }]
 ```
 - **Response**:
-  ```json
+
+```json
   [
       {
         "status": true,
         "token": "eyJ0eXAiOiJKV1Qi..."
     }
   ]
-
+```
 
 - **Method**: GET
 - **URL**: `/v1/profile`
 - **Description**: Get data of current user
 - **Request Parameters**: None
 - **Response**:
-  ```json
+
+```json
   [
     {
         "status": true,
@@ -131,27 +136,27 @@ Authentication is required for all endpoints. Use token-based (JWT) authenticati
         }
     }
   ]
-
-          
+```
 - **Method**: POST
 - **URL**: `/v1/logout`
 - **Description**: Logout from aplication
 - **Request Parameters**: None
 - **Response**:
-  ```json
+```json
   [
     {
     "status": true,
     "message": "User logged out successfully."
     } 
   ]        
+```
 
 - **Method**: GET
 - **URL**: `/v1/accounts`
 - **Description**: Get all accounts for current user
 - **Request Parameters**: None
 - **Response**:
-  ```json
+```json
   [
     {
             "id": 16,
@@ -189,14 +194,15 @@ Authentication is required for all endpoints. Use token-based (JWT) authenticati
   ]
 ```
 - **Response**:
-  ```json
+
+```json
   [
     {
         "status": true,
         "message": "Account successfully saved."
     }
   ]
-
+```
 
 - **Method**: POST
 - **URL**: `/v1/accounts/get-by-slug/{slug}`
@@ -208,7 +214,7 @@ Authentication is required for all endpoints. Use token-based (JWT) authenticati
 }]
 ```
 - **Response**:
-  ```json
+```json
   [
     {
         "data": {
@@ -222,3 +228,4 @@ Authentication is required for all endpoints. Use token-based (JWT) authenticati
         }
     }
   ]
+```
