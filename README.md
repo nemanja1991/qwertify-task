@@ -2,7 +2,7 @@
 
 This project provides an example of building a RESTful API using Laravel for the backend and a ReactJS frontend to consume the API. The API allows users to perform CRUD operations on a collection of tasks.
 
-##Technologies Used
+## Technologies Used
 Backend:
 
 - Laravel 10.x
