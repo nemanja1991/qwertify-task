@@ -4,19 +4,22 @@ import axiosClient from '../axios';
 import { PencilIcon, PlusCircleIcon, TrashIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
 import { useStateContext } from "../context/ContextsProvider";
+import PaginationLinks from "../components/PaginationLinks.jsx";
 
 export default function Accounts() {
 
   const [accounts, setAccounts] = useState([])
   const [loading, setLoading] = useState(false)
   const { showMessage } = useStateContext()
+  const [ meta, setMeta] = useState({});
 
-  function getAccounts() {
+  function getAccounts(url) {
     setLoading(true)
-
-    axiosClient.get('/v1/accounts')
+    url = url || '/v1/accounts'
+    axiosClient.get(url)
       .then(({data}) => {
         setAccounts(data.data)
+        setMeta(data.meta)
         setLoading(false)
       })
   }
@@ -30,6 +33,10 @@ export default function Accounts() {
         })
     }
   }
+
+  const onPageClick = (link) => {
+    getAccounts(link.url);
+  };
 
   useEffect(() => { getAccounts() }, [])
 
@@ -90,7 +97,12 @@ export default function Accounts() {
               </table>
             </div>
             ) }
+
+            {accounts.length > 0 && <PaginationLinks meta={meta} onPageClick={onPageClick}/> }
+
           </div>
+          
+          
       ) }
     </PageComponent>
   )

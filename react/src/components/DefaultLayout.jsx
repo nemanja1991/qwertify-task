@@ -96,8 +96,8 @@ export default function DefaultLayout() {
                                         <UserIcon className='w-8 h-8 bg-black/25 p-2 rounded-full text-white '/>
                                     </div>
                                     <div className="ml-3">
-                                        <div className="text-base font-medium leading-none text-gray-700">{currentUser.name}</div>
-                                        <div className="text-sm font-medium leading-none text-gray-700">{currentUser.email}</div>
+                                        <div className="text-base font-medium leading-none text-gray-700">{currentUser && currentUser.name}</div>
+                                        <div className="text-sm font-medium leading-none text-gray-700">{currentUser && currentUser.email}</div>
                                     </div>
                                     
                                 </div>
