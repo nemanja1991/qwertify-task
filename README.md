@@ -17,6 +17,26 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 ## Installation
 
+# Frontend (ReactJS)
+
+1. Navigate to the frontend directory:
+
+```
+cd qwertify-task/react
+```
+
+2. Install dependencies:
+
+```
+npm install
+```
+
+3. Start the React development server:
+
+```
+npm run dev
+```
+
 API Endpoints
 The following endpoints are available for interacting with tasks:
 
