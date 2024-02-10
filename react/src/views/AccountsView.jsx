@@ -25,7 +25,7 @@ export default function AccountsView() {
     
     if(id)
     {
-      res = axiosClient.put(`/v1/accounts/${id}`, account)
+      res = axiosClient.put(`/v1/accounts/${account.id}`, account)
     } 
     else 
     {
@@ -48,9 +48,9 @@ export default function AccountsView() {
     {  
       setLoading(true)
       
-      axiosClient.get(`/v1/accounts/${id}`)
+      axiosClient.get(`/v1/accounts/get-by-slug/${id}`)
         .then(({data}) => {
-            setAccount(data.data)
+            setAccount(data)
             setLoading(false)
         })
     }

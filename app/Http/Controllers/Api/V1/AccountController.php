@@ -39,15 +39,15 @@ class AccountController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show(Account $account)
     {
-        // $user = auth()->user();
+        $user = auth()->user();
         
-        // if ($user->id !== $account->user_id) {
-        //     return abort(403, 'Unauthorized action.');
-        // }
+        if ($user->id !== $account->user_id) {
+            return abort(403, 'Unauthorized action.');
+        }
 
-        $accountData = $this->accountService->find($id);
+        $accountData = $this->accountService->find($account->id);
 
         return response()->json([
             "status" => true,
@@ -59,7 +59,7 @@ class AccountController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateAccountRequest $request)
+    public function update(UpdateAccountRequest $request, Account $account)
     {
         $data = $request->validated();
         $user = auth()->user();
@@ -68,19 +68,25 @@ class AccountController extends Controller
             return abort(403, 'Unauthorized action.');
         }
 
-        $this->accountService->update($data, $data->id);
+        $this->accountService->update($data, $account->id);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy(Account $account)
     {
-        return $this->accountService->destroy($id);
+        $user = auth()->user();
+        
+        if ($user->id !== $account->user_id) {
+            return abort(403, 'Unauthorized action.');
+        }
+        
+        return $this->accountService->destroy($account->id);
     }
 
     public function findBySlug(Account $account)
     {
-        
+        return $this->accountService->findBySlug($account->slug);
     }
 }

@@ -43,4 +43,9 @@ class AccountRepository implements AccountInterface
     {
         return Account::where('id', $id)->first()->delete();
     }
+
+    public function findBySlug($slug)
+    {
+        return Account::where('slug', $slug)->first();
+    }
 }

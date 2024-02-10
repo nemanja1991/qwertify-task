@@ -1,6 +1,6 @@
 import { Fragment, useEffect } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { UserIcon } from '@heroicons/react/24/outline'
+import { AdjustmentsHorizontalIcon, UserIcon } from '@heroicons/react/24/outline'
 import { NavLink, Navigate, Outlet } from 'react-router-dom'
 import { useStateContext } from '../context/ContextsProvider';
 import axiosClient from '../axios';
@@ -31,6 +31,14 @@ export default function DefaultLayout() {
         })
     }
 
+    useEffect(() => {
+        axiosClient.get('/v1/accounts/profile')
+        .then(({data}) => {
+            console.log(data)
+            setCurrentUser(data.data)
+        })
+      }, [])
+
   return (
     <>
       <div className="min-h-full">
@@ -40,11 +48,7 @@ export default function DefaultLayout() {
                     <div className="flex h-16 items-center justify-between">
                     <div className="flex items-center">
                         <div className="flex-shrink-0">
-                        <img
-                            className="h-8 w-8"
-                            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                            alt="AccountPasswordManagment"
-                        />
+                            <AdjustmentsHorizontalIcon className="h-8 w-8 text-white" />
                         </div>
                         <div className="hidden md:block">
                         <div className="ml-10 flex items-baseline space-x-4">

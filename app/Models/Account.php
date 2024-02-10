@@ -2,23 +2,29 @@
 
 namespace App\Models;
 
-use Spatie\Sluggable\HasSlug;
-use Spatie\Sluggable\SlugOptions;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Account extends Model
 {
     use HasFactory;
-    use HasSlag;
+    use Sluggable;
 
-    protected $fillable = ['user_id', 'account_name', 'website_url', 'username', 'password', 'note', 'created_at', 'updated_at'];
+    protected $fillable = ['user_id', 'account_name', 'slug', 'website_url', 'username', 'password', 'note', 'created_at', 'updated_at'];
 
-    public function getSlugOptions() : SlugOptions
+        /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
+    public function sluggable(): array
     {
-        return SlugOptions::create()
-            ->generateSlugsFrom('account_name')
-            ->saveSlugsTo('slug');
+        return [
+            'slug' => [
+                'source' => 'account_name'
+            ]
+        ];
     }
 
     public function users()

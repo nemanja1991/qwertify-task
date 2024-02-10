@@ -26,4 +26,5 @@ Route::middleware('auth:api')->group(function()
 
     Route::apiResource('/v1/accounts', AccountController::class);
 
+    Route::get('/v1/accounts/get-by-slug/{account:slug}', [AccountController::class, 'findBySlug']);
 });

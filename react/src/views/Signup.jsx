@@ -38,35 +38,24 @@ export default function Signup() {
     <>
       <p className="mt-2 text-center text-sm text-gray-600"><Link to="/login" className="font-medium text-indigo-600 hover:text-indigo-500">Login</Link></p>
       {error.__html && (<div className="bg-red-500 rounded py-2 px-3 text-white" dangerouslySetInnerHTML={error}></div>)}
-
-      <form
-        onSubmit={onSubmit}
-        className="mt-8 space-y-6"
-        action="#"
-        method="POST"
-      >
-        <input type="hidden" name="remember" defaultValue="true" />
-        <div className="-space-y-px rounded-md shadow-sm">
-          <div>
-            <label htmlFor="full-name" className="sr-only">
-              Full Name
-            </label>
-            <input
+      <div>
+      <form onSubmit={onSubmit}>
+        <div className="max-w-md mx-auto">
+          <div className="relative z-0 w-full mb-5 group">
+            <input 
               id="full-name"
               name="name"
               type="text"
               required
               value={fullName}
               onChange={ev => setFullName(ev.target.value)}
-              className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-              placeholder="Full Name"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-900 dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" 
+              placeholder=" "  
             />
+            <label htmlFor="password" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Full name</label>
           </div>
-          <div>
-            <label htmlFor="email-address" className="sr-only">
-              Email address
-            </label>
-            <input
+          <div className="relative z-0 w-full mb-5 group">
+            <input 
               id="email-address"
               name="email"
               type="email"
@@ -74,15 +63,13 @@ export default function Signup() {
               required
               value={email}
               onChange={ev => setEmail(ev.target.value)}
-              className="relative block w-full appearance-none rounded-none border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-              placeholder="Email address"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-900 dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" 
+              placeholder=" "  
             />
+            <label htmlFor="password" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email address</label>
           </div>
-          <div>
-            <label htmlFor="password" className="sr-only">
-              Password
-            </label>
-            <input
+          <div className="relative z-0 w-full mb-5 group">
+            <input 
               id="password"
               name="password"
               type="password"
@@ -90,26 +77,25 @@ export default function Signup() {
               required
               value={password}
               onChange={ev => setPassword(ev.target.value)}
-              className="relative block w-full appearance-none rounded-none border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-              placeholder="Password"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-900 dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" 
+              placeholder=" "  
             />
+            <label htmlFor="password" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
           </div>
-
-          <div>
-            <label htmlFor="password-confirmation" className="sr-only">
-              Password Confirmation
-            </label>
-            <input
+          <div className="relative z-0 w-full mb-5 group">
+            <input 
               id="password-confirmation"
               name="password_confirmation"
               type="password"
               required
               value={passwordConfirmation}
               onChange={ev => setPasswordConfirmation(ev.target.value)}
-              className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-              placeholder="Password Confirmation"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-900 dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" 
+              placeholder=" "  
             />
+            <label htmlFor="password" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
           </div>
+
         </div>
 
         <div>
@@ -127,6 +113,7 @@ export default function Signup() {
           </button>
         </div>
       </form>
+      </div>
     </>
   );
 }

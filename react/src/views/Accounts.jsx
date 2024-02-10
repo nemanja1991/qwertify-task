@@ -71,7 +71,7 @@ export default function Accounts() {
                     <td className="px-6 py-4">
                       <div className="flex justify-between items-center">
                         <Link 
-                          to={`/accounts/${a.id}`} >
+                          to={`/accounts/${a.slug}`} >
                             <PencilIcon className="h-4 w-4 mr-2"/>
                         </Link>
                         <button

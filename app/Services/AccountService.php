@@ -34,4 +34,9 @@ class AccountService
     {
         return $this->accountRepository->destroy($id);
     }
+
+    public function findBySlug($slug)
+    {
+        return $this->accountRepository->findBySlug($slug);
+    }
 }
