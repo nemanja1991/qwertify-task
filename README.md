@@ -74,25 +74,27 @@ Authentication is required for all endpoints. Use token-based (JWT) authenticati
 - **Description**: Create new user
 - **Request Parameters**: 
 ```json
-  [{
-   "name": "Petar Petrovic",
-   "email": "petar@gmail.com",
-   "password": "12345678",
-   "password_confirmation": "12345678"
-}]
+[
+    {
+    "name": "Petar Petrovic",
+    "email": "petar@gmail.com",
+    "password": "12345678",
+    "password_confirmation": "12345678"
+    }
+]
 ```
 
 - **Response**:
 
 ```json
-  [
-      {
+[
+    {
         "status": true,
         "message": "User registered successfully.",
         "token": "eyJ0eXAiOiJKV1Qi..."
     }
-  ]
-
+]
+```
 
 - **Method**: POST
 - **URL**: `/v1/login`
@@ -100,20 +102,22 @@ Authentication is required for all endpoints. Use token-based (JWT) authenticati
 - **Request Parameters**: 
 
 ```json
-  [{
-   "email": "petar@gmail.com",
-   "password": "12345678"
-}]
+[
+    {
+        "email": "petar@gmail.com",
+        "password": "12345678"
+    }
+]
 ```
 - **Response**:
 
 ```json
-  [
-      {
+[
+    {
         "status": true,
         "token": "eyJ0eXAiOiJKV1Qi..."
     }
-  ]
+]
 ```
 
 - **Method**: GET
@@ -123,7 +127,7 @@ Authentication is required for all endpoints. Use token-based (JWT) authenticati
 - **Response**:
 
 ```json
-  [
+[
     {
         "status": true,
         "data": {
@@ -135,7 +139,7 @@ Authentication is required for all endpoints. Use token-based (JWT) authenticati
             "updated_at": "2024-02-08T15:38:44.000000Z"
         }
     }
-  ]
+]
 ```
 - **Method**: POST
 - **URL**: `/v1/logout`
@@ -143,12 +147,12 @@ Authentication is required for all endpoints. Use token-based (JWT) authenticati
 - **Request Parameters**: None
 - **Response**:
 ```json
-  [
+[
     {
-    "status": true,
-    "message": "User logged out successfully."
+        "status": true,
+        "message": "User logged out successfully."
     } 
-  ]        
+]       
 ```
 
 - **Method**: GET
@@ -177,13 +181,14 @@ Authentication is required for all endpoints. Use token-based (JWT) authenticati
             "note": "Tempore aperiam perspiciatis ipsum ut iure aperiam enim voluptate. Nihil beatae commodi quibusdam exercitationem unde. Impedit at officiis consectetur et impedit. Aperiam fugiat consequatur quis quasi. Architecto et amet veniam ut. Dolorum est nostrum ipsam eum. Aut voluptate fugit cumque aut fugit et qui. Eveniet voluptas beatae qui a hic. Tempore repellat dignissimos quos soluta explicabo omnis. Velit esse cupiditate ducimus doloribus commodi aliquid mollitia. Libero commodi est dolorem sint qui explicabo."
         },
   ]    
+```
 
 - **Method**: POST
 - **URL**: `/v1/accounts`
 - **Description**: Store new account data
 - **Request Parameters**: 
 ```json
-  [
+[
     {
         "account_name": "SBB",
         "website_url": "www.sbb.com",
@@ -191,17 +196,17 @@ Authentication is required for all endpoints. Use token-based (JWT) authenticati
         "password": "test123",
         "note": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, dolore hic quam reprehenderit ipsam rem tempora! Accusantium fugiat totam labore, quisquam exercitationem autem eligendi quia cupiditate quibusdam. Ipsam, dignissimos aliquid?"
     }
-  ]
+]
 ```
 - **Response**:
 
 ```json
-  [
+[
     {
         "status": true,
         "message": "Account successfully saved."
     }
-  ]
+]
 ```
 
 - **Method**: POST
@@ -209,13 +214,15 @@ Authentication is required for all endpoints. Use token-based (JWT) authenticati
 - **Description**: Login to app
 - **Request Parameters**: 
 ```json
-  [{
-   "slug": "ut-harum",
-}]
+[
+    {
+        "slug": "ut-harum",
+    }
+]
 ```
 - **Response**:
 ```json
-  [
+[
     {
         "data": {
             "id": 21,
@@ -227,5 +234,5 @@ Authentication is required for all endpoints. Use token-based (JWT) authenticati
             "note": "Impedit qui eos magnam cumque reiciendis esse rem aut. Possimus autem ducimus doloremque quas. Consequuntur quos nulla est voluptatem. Voluptatibus aliquam velit non eligendi in eos unde. Et ea autem suscipit quos assumenda. Amet autem earum debitis voluptatem qui rerum. Unde culpa voluptate dolorum voluptas fuga reiciendis dolore. Illo culpa architecto saepe architecto vel quo assumenda. Saepe voluptas quas voluptatem sequi id dolorem. Voluptatem nostrum ipsa aliquid ipsa corporis. Temporibus quos voluptate quaerat aliquam laboriosam sequi facere. Ut ullam tempore aut maiores velit. Molestiae blanditiis aliquam voluptates vero nulla aut. Dolorum delectus aut cupiditate aut eligendi. Et necessitatibus enim corrupti repellat illum eligendi rerum. Vero deserunt omnis a beatae fugit. Vel eaque perferendis dolores reprehenderit voluptas at. Aut aut perferendis atque officiis eum nostrum rerum. Voluptatibus provident ut voluptates similique. Dicta consequatur maxime repellat iste cum maxime. Qui assumenda nemo ut unde sit qui et. Est sequi omnis consectetur debitis debitis."
         }
     }
-  ]
+]
 ```
