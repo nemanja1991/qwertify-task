@@ -10,7 +10,7 @@ Backend:
 - MySQL
 
 Frontend:
-- ReactJS
+- ReactJS (created with Vite)
 - Axios (for making HTTP requests)
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
