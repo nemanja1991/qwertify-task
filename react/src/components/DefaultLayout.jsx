@@ -4,6 +4,7 @@ import { AdjustmentsHorizontalIcon, UserIcon } from '@heroicons/react/24/outline
 import { NavLink, Navigate, Outlet } from 'react-router-dom'
 import { useStateContext } from '../context/ContextsProvider';
 import axiosClient from '../axios';
+import Message from './Message';
 
 const navigation = [
   { name: 'Accounts', to: '/' },
@@ -32,7 +33,7 @@ export default function DefaultLayout() {
     }
 
     useEffect(() => {
-        axiosClient.get('/v1/accounts/profile')
+        axiosClient.get('/v1/profile')
         .then(({data}) => {
             console.log(data)
             setCurrentUser(data.data)
@@ -95,10 +96,12 @@ export default function DefaultLayout() {
                                         <UserIcon className='w-8 h-8 bg-black/25 p-2 rounded-full text-white '/>
                                     </div>
                                     <div className="ml-3">
-                                        {/* <div className="text-base font-medium leading-none text-white">{currentUser.data.name}</div>
-                                        <div className="text-sm font-medium leading-none text-gray-400">{currentUser.data.email}</div> */}
+                                        <div className="text-base font-medium leading-none text-gray-700">{currentUser.name}</div>
+                                        <div className="text-sm font-medium leading-none text-gray-700">{currentUser.email}</div>
                                     </div>
+                                    
                                 </div>
+                                <hr className='mt-2'/>
                                 <Menu.Item>
                                     <a
                                         href="#"
@@ -136,7 +139,7 @@ export default function DefaultLayout() {
         </Disclosure>
 
         <Outlet />
-
+        <Message />
       </div>
     </>
   )

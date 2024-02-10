@@ -39,7 +39,6 @@ class UserController extends Controller
 
             return response()->json([
                 "status"    => true,
-                "message"   => "User logged in succcessfully.",
                 "token"     => $token
             ]);
         }
@@ -56,7 +55,6 @@ class UserController extends Controller
 
         return response()->json([
             "status" => true,
-            "message" => "Profile data.",
             "data" => $currentUser
         ]);
     }

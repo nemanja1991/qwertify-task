@@ -3,11 +3,13 @@ import PageComponent from "../components/PageComponent";
 import axiosClient from '../axios';
 import { PencilIcon, PlusCircleIcon, TrashIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
+import { useStateContext } from "../context/ContextsProvider";
 
 export default function Accounts() {
 
   const [accounts, setAccounts] = useState([])
   const [loading, setLoading] = useState(false)
+  const { showMessage } = useStateContext()
 
   function getAccounts() {
     setLoading(true)
@@ -24,6 +26,7 @@ export default function Accounts() {
       axiosClient.delete(`/v1/accounts/${id}`)
         .then(() => {
           getAccounts()
+          showMessage("Account successfully deleted.")
         })
     }
   }
