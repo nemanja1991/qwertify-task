@@ -18,6 +18,14 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(UserService::class, function ($app) {
             return new UserService($app->make(UserRepository::class));
         });
+
+        $this->app->bind(AccountRepository::class, function ($app) {
+            return new AccountRepository();
+        });
+
+        $this->app->bind(AccountService::class, function ($app) {
+            return new AccountService($app->make(AccountRepository::class));
+        });
     }
 
     /**

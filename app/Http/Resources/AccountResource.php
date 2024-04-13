@@ -21,7 +21,7 @@ class AccountResource extends JsonResource
             'slug'          => $this->slug,
             'website_url'   => $this->website_url,
             'username'      => $this->username,
-            'password'      => $this->password,
+            'password'      => Crypt::decryptString($this->password),
             'note'          => $this->note
         ];
     }
